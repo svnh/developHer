@@ -13,11 +13,13 @@ developHer.Collections = developHer.Collections || {};
 
     window.jobsCollection = new developHer.Collections.JobsCollection();
 
+    var loremIpsum ='Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.'
+
     var job1 = new developHer.Models.JobModel({
 		type: 'agriculture',
 		period: 'May - September',
 		salary: "$1000",
-		description: "farmWork",
+		description: loremIpsum,
 		position: {
           latitude: 37.591927,
           longitude: -122.34375
@@ -29,7 +31,7 @@ developHer.Collections = developHer.Collections || {};
 		type: 'construction',
 		period: '3 months',
 		salary: "$1000",
-		description: "construction work",
+		description: loremIpsum,
 		position: {
           latitude: 38,
           longitude: -122
@@ -41,7 +43,7 @@ developHer.Collections = developHer.Collections || {};
 		type: 'custodian',
 		period: '2 weeks',
 		salary: "$1070",
-		description: "custodian work",
+		description: loremIpsum,
 		position: {
           latitude: 37.874549,
           longitude: -122.45842
@@ -53,7 +55,7 @@ developHer.Collections = developHer.Collections || {};
 		type: 'government',
 		period: '-',
 		salary: "$100",
-		description: "government work",
+		description: loremIpsum,
 		position: {
           latitude: 37,
           longitude: -121
@@ -65,7 +67,7 @@ developHer.Collections = developHer.Collections || {};
 		type: 'childcare',
 		period: 'permanent',
 		salary: "$1200",
-		description: "childcare work",
+		description: loremIpsum,
 		position: {
           latitude:37.986896,
           longitude: -122.56897
@@ -77,7 +79,7 @@ developHer.Collections = developHer.Collections || {};
 		type: 'factory',
 		period: '1 year',
 		salary: "$11/hour",
-		description: "factory work",
+		description: loremIpsum,
 		position: {
           latitude: 37.5919,
           longitude: -121.8375
@@ -89,7 +91,7 @@ developHer.Collections = developHer.Collections || {};
 		type: 'manuallabor',
 		period: '20 hours',
 		salary: "$300",
-		description: "lifting boxes",
+		description: loremIpsum,
 		position: {
           latitude: 37.325874,
           longitude: -122.021027

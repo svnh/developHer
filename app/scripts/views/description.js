@@ -7,11 +7,14 @@ developHer.Views = developHer.Views || {};
 
   developHer.Views.DescriptionView = Backbone.View.extend({
 
+    initialize: function(model){
+      this.model = model;
+    },
+
     template: JST['app/scripts/templates/description.ejs'],
 
     render: function(){
-      console.log('rendering');
-      return this.template;
+      return this.template(this.model.attributes);
     }
 
   });

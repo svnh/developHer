@@ -31,6 +31,8 @@ loadMap = function(){
       });
 
       google.maps.event.addListener(marker, 'click', function() {
+        var descriptionView = new developHer.Views.DescriptionView(feature);
+        $('body').prepend(descriptionView.render());
         showModal(feature)
       });
 
@@ -83,22 +85,9 @@ loadMap = function(){
   window.showModal = function(feature){
     $('#newModal').modal('toggle');
     
-    $('.md-title').html("<img src='./markers/" + feature.get('type') + ".png'>")
-    $('.md-title').unbind( "mouseover" );
-    $('.md-title').on('mouseover', function(){
-      playSound(feature.get('type'))
+    $('#md-description').on('mouseover', function(){
+      playSound(feature.get('type')+'Work')
     });
-    
-    $('.md-text').text(feature.salary)
-    
-    $('.md-description').html('<img src="./markers/wat.png">')
-    $('.md-description').unbind( "mouseover" );
-    $('.md-description').on('mouseover', function(){
-      playSound(feature.get('description'))
-    });
-
-    $('.md-phone').html('<img src="./markers/phone.png"><span>'+feature.get('contact')+'</span>')
-
   };
   
   window.playSound = function(sound){

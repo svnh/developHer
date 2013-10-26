@@ -179,3 +179,45 @@ button > img {
   margin: auto;
   vertical-align: center;
 }
+
+.modal-content{
+  min-height: 400px;
+  min-width: 300px;
+  padding: 40px;
+}
+
+#myModal .modal-content textarea{
+  width: 100%
+}
+
+#myModal .modal-body button{
+  float: right;
+  margin: 30px 0;
+}
+
+#myModal .modal-body input{
+  width: 150px;
+}
+
+button.login{
+  float: right;
+  margin-top: 20px;
+}
+
+#jobModal .modal-content{
+  margin-bottom: 50px;
+}
+
+#jobModal input, fieldset{
+  margin-top: 15px;
+  width: 100%;
+}
+
+#jobModal input{
+  margin-top: 0;
+}
+
+#jobModal .btn-primary{
+  float: right;
+  margin: 30px 0;
+}

@@ -8,11 +8,16 @@ var createJob = function(){
 		period: $('#period').val(),
 		salary: $('#salary').val(),
 		requirements: $('#requirements').val(),
-		description: $('#description').val()
+		description: $('#description').val(),
+    position: {
+      latitude: 41,
+      longitude: -126.8
+    }
 	});
 
 	jobsCollection.add([newJob]);
 	$('.close').click();
+  loadMap();
 };
 
 $(document).ready(function(){

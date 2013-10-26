@@ -7,7 +7,7 @@ developHer.Views = developHer.Views || {};
 
     developHer.Views.JobView = Backbone.View.extend({
 
-        template: JST['app/scripts/templates/job.ejs']
+        // template: JST['app/scripts/templates/job.ejs']
 
     });
 

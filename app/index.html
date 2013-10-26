@@ -3,146 +3,172 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>developHer</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-        <!-- <meta name="viewport" content="width=device-width"> -->
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="styles/main.css">
-        <!-- endbuild -->
-        <!-- build:js scripts/vendor/modernizr.js -->
-        <script src="bower_components/modernizr/modernizr.js"></script>
-        <!-- endbuild -->
-    </head>
-
-
-    <style type="text/css">
-      html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
-      #map-canvas { height: 100% }
-    </style>
-
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4XLs7cRIiRZWtjkTUPlijAUbKvo-7o3A&sensor=true">
-    </script>
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    
-    <script type="text/javascript">
-        var map;
-
-        function initialize() {
-          var mapOptions = {
-            zoom: 6,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-          };
-          map = new google.maps.Map(document.getElementById('map-canvas'),
-              mapOptions);
-
-          // Try HTML5 geolocation
-          if(navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-              var pos = new google.maps.LatLng(position.coords.latitude,
-                                               position.coords.longitude);
-
-
-                var marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    title:"My location"
-                });
-
-              google.maps.event.addListener(marker, 'click', function() {
-                playLocation();
-              });
-
-              map.setCenter(pos);
-            }, function() {
-              handleNoGeolocation(true);
-            });
-          } else {
-            // Browser doesn't support Geolocation
-            handleNoGeolocation(false);
-          }
-        }
-
-        function handleNoGeolocation(errorFlag) {
-          if (errorFlag) {
-            var content = 'Error: The Geolocation service failed.';
-          } else {
-            var content = 'Error: Your browser doesn\'t support geolocation.';
-          }
-
-          var options = {
-            map: map,
-            position: new google.maps.LatLng(60, 105),
-            content: content
-          };
-
-          var infowindow = new google.maps.InfoWindow(options);
-          map.setCenter(options.position);
-        };
-
-        var playLocation = function(){
-            document.getElementById('location').load()
-            document.getElementById('location').play()
-        }
-
-        google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
-  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>developHer</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <!-- <meta name="viewport" content="width=device-width"> -->
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
   </head>
+
+
+  <style type="text/css">
+    html { height: 100% }
+    body { height: 100%; margin: 0; padding: 0 }
+    #map-canvas { height: 100% }
+  </style>
+
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4XLs7cRIiRZWtjkTUPlijAUbKvo-7o3A&sensor=true">
+  </script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   
-    <body>
-    
-        <div>
-            developHer
-            <audio src="./sounds/location.mp3" id="location"></audio>
-        </div>
+  <script type="text/javascript">
+    var map;
 
-        <div id="map-canvas"/>
+    function initialize() {
+      var mapOptions = {
+        zoom: 6,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      map = new google.maps.Map(document.getElementById('map-canvas'),
+          mapOptions);
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
+      var icons = {
+        agriculture: {
+          icon: './markers/agriculture.png',
+          sound: 'agriculture',
+          position: {
+            latitude: 37.591927,
+            longitude: -122.34375
+          }
+        }
+      };
 
-        <!-- build:js scripts/vendor.js -->
-        <script src="bower_components/jquery/jquery.js"></script>
-        <script src="bower_components/underscore/underscore.js"></script>
-        <script src="bower_components/backbone/backbone.js"></script>
-        <!-- endbuild -->
+      var addMarker = function(feature) {
+        var pos = new google.maps.LatLng(feature.position.latitude,
+                                           feature.position.longitude);
+        var marker = new google.maps.Marker({
+          position: pos,
+          // icon: icons[feature.type].icon,
+          icon: feature.icon,
+          map: map
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+          playSound(feature.sound);
+        });
+      }
+      // Try HTML5 geolocation
+      if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = new google.maps.LatLng(position.coords.latitude,
+                                           position.coords.longitude);
 
-        <!-- build:js scripts/plugins.js -->
-        <script src="bower_components/sass-bootstrap/js/affix.js"></script>
-        <script src="bower_components/sass-bootstrap/js/alert.js"></script>
-        <script src="bower_components/sass-bootstrap/js/dropdown.js"></script>
-        <script src="bower_components/sass-bootstrap/js/tooltip.js"></script>
-        <script src="bower_components/sass-bootstrap/js/modal.js"></script>
-        <script src="bower_components/sass-bootstrap/js/transition.js"></script>
-        <script src="bower_components/sass-bootstrap/js/button.js"></script>
-        <script src="bower_components/sass-bootstrap/js/popover.js"></script>
-        <script src="bower_components/sass-bootstrap/js/carousel.js"></script>
-        <script src="bower_components/sass-bootstrap/js/scrollspy.js"></script>
-        <script src="bower_components/sass-bootstrap/js/collapse.js"></script>
-        <script src="bower_components/sass-bootstrap/js/tab.js"></script>
-        <!-- endbuild -->
+          addMarker(icons.agriculture, pos);
+          
+          var myLocation = new google.maps.Marker({
+              position: pos,
+              map: map,
+              title:"My location"
+          });
 
-        <!-- build:js({.tmp,app}) scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <script src="scripts/templates.js"></script>
-        <script src="scripts/collections/jobs.js"></script>
-        <script src="scripts/models/job.js"></script>
-        <script src="scripts/views/job.js"></script>
-        <!-- endbuild -->
+          google.maps.event.addListener(myLocation, 'click', function() {
+            playSound('location');
+          });
+
+          map.setCenter(pos);
+        }, function() {
+          handleNoGeolocation(true);
+        });
+      } else {
+        // Browser doesn't support Geolocation
+        handleNoGeolocation(false);
+      }
+    }
+
+    function handleNoGeolocation(errorFlag) {
+      if (errorFlag) {
+        var content = 'Error: The Geolocation service failed.';
+      } else {
+        var content = 'Error: Your browser doesn\'t support geolocation.';
+      }
+
+      var options = {
+        map: map,
+        position: new google.maps.LatLng(60, 105),
+        content: content
+      };
+
+      var infowindow = new google.maps.InfoWindow(options);
+      map.setCenter(options.position);
+    };
+
+    var playSound = function(sound){
+        document.getElementById(sound).load()
+        document.getElementById(sound).play()
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+
+</head>
+
+  <body>
+  
+      <div>
+          developHer
+          <audio src="./sounds/location.mp3" id="location"></audio>
+          <audio src="./sounds/agriculture.mp3" id="agriculture"></audio>
+      </div>
+
+      <div id="map-canvas"/>
+
+      <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+      <script>
+          (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+          function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+          e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+          e.src='//www.google-analytics.com/analytics.js';
+          r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+          ga('create','UA-XXXXX-X');ga('send','pageview');
+      </script>
+
+      <!-- build:js scripts/vendor.js -->
+      <script src="bower_components/jquery/jquery.js"></script>
+      <script src="bower_components/underscore/underscore.js"></script>
+      <script src="bower_components/backbone/backbone.js"></script>
+      <!-- endbuild -->
+
+      <!-- build:js scripts/plugins.js -->
+      <script src="bower_components/sass-bootstrap/js/affix.js"></script>
+      <script src="bower_components/sass-bootstrap/js/alert.js"></script>
+      <script src="bower_components/sass-bootstrap/js/dropdown.js"></script>
+      <script src="bower_components/sass-bootstrap/js/tooltip.js"></script>
+      <script src="bower_components/sass-bootstrap/js/modal.js"></script>
+      <script src="bower_components/sass-bootstrap/js/transition.js"></script>
+      <script src="bower_components/sass-bootstrap/js/button.js"></script>
+      <script src="bower_components/sass-bootstrap/js/popover.js"></script>
+      <script src="bower_components/sass-bootstrap/js/carousel.js"></script>
+      <script src="bower_components/sass-bootstrap/js/scrollspy.js"></script>
+      <script src="bower_components/sass-bootstrap/js/collapse.js"></script>
+      <script src="bower_components/sass-bootstrap/js/tab.js"></script>
+      <!-- endbuild -->
+
+      <!-- build:js({.tmp,app}) scripts/main.js -->
+      <script src="scripts/main.js"></script>
+      <script src="scripts/templates.js"></script>
+      <script src="scripts/collections/jobs.js"></script>
+      <script src="scripts/models/job.js"></script>
+      <script src="scripts/views/job.js"></script>
+      <!-- endbuild -->
 </body>
 </html>

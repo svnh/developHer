@@ -3,12 +3,16 @@
 developHer.Views = developHer.Views || {};
 
 (function () {
-    'use strict';
+  'use strict';
 
-    developHer.Views.JobView = Backbone.View.extend({
+  developHer.Views.JobView = Backbone.View.extend({
 
-        template: JST['app/scripts/templates/job.ejs']
+    template: JST['app/scripts/templates/job.ejs'],
 
-    });
+    render: function(){
+      return this.template;
+    }
+
+  });
 
 })();

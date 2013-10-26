@@ -7,7 +7,10 @@ window.developHer = {
     Routers: {},
     init: function () {
         'use strict';
-        console.log('Hello from Backbone!');
+        var jobsView = new developHer.Views.JobsView();
+        $('body').append(jobsView.render());
+        var jobView = new developHer.Views.JobView();
+        $('body').prepend(jobView.render());
     }
 };
 

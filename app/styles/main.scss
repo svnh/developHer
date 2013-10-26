@@ -127,13 +127,47 @@ img:hover{
   float: left;
 }
 .topBar img {
-  height: 90%;
+  height: 80%;
+  min-width: 50px;
   padding: 5px;
-  background: green;
+  background: #f46d43;
   border-radius: 5px;
   animation-timing-function: ease-in;
 }
 
 .topBar img:hover {
   height: 100%;
+  min-width:60px;
+}
+
+.topBar {
+  height: 20%;
+  background: #a50026;
+  box-shadow: 5px 5px 5px gray;
+}
+
+/*#a50026    #d73027    #f46d43    
+#fdae61    #fee08b    #ffffbf    
+#d9ef8b    #a6d96a    #66bd63    
+#1a9850    #006837 */   
+
+html {
+    overflow: hidden;
+}
+
+body {
+    background: #eee;
+    text-align: center;
+}
+
+svg {
+    display: inline-block;
+}
+
+iframe {
+    display: inline-block;
+    border: none;
+    height: 300px;
+    width: 400px;
+    margin: 10px;
 }

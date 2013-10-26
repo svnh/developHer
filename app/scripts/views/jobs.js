@@ -5,9 +5,12 @@ var loadMap = function(){
 
   function initialize() {
     var mapOptions = {
-      zoom: 6,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
+      zoom: 7,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      disableDefaultUI: true,
+      zoomControl: true
+    }
+
     map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
 
@@ -18,7 +21,10 @@ var loadMap = function(){
         position: {
           latitude: 37.591927,
           longitude: -122.34375
-        }
+        },
+        salary: "$1000",
+        description: "farmWork",
+        phoneNumber: "(555)239-2903"
       },
       factory: {
         icon: './markers/factory.png',
@@ -26,7 +32,10 @@ var loadMap = function(){
         position: {
           latitude: 37.5919,
           longitude: -121.8375
-        }
+        },
+        salary: "$250",
+        description: "factoryWork",
+        phoneNumber: "(888)919-1223"
       },
       construction: {
         icon: './markers/construction.png',
@@ -34,7 +43,10 @@ var loadMap = function(){
         position: {
           latitude: 38,
           longitude: -122
-        }
+        },
+        salary: "$100",
+        description: "constructionWork",
+        phoneNumber: "(998)219-3427"
       },
       custodian: {
         icon: './markers/custodian.png',
@@ -42,7 +54,10 @@ var loadMap = function(){
         position: {
           latitude: 39,
           longitude: -122
-        }
+        },
+        salary: "$10",
+        description: "custodianWork",
+        phoneNumber: "(192)938-2113"
       },
       government: {
         icon: './markers/government.png',
@@ -50,7 +65,10 @@ var loadMap = function(){
         position: {
           latitude: 37,
           longitude: -121
-        }
+        },
+        salary: "$500",
+        description: "govtWork",
+        phoneNumber: "(290)109-1203"
       },
       childcare: {
         icon: './markers/childcare.png',
@@ -58,7 +76,10 @@ var loadMap = function(){
         position: {
           latitude: 37,
           longitude: -122.89
-        }
+        },
+        salary: "$2500",
+        description: "childcareWork",
+        phoneNumber: "(123)312-9323"
       },
       manuallabor: {
         icon: './markers/manuallabor.png',
@@ -66,7 +87,10 @@ var loadMap = function(){
         position: {
           latitude: 36,
           longitude: -122.8
-        }
+        },
+        salary: "$200",
+        description: "manuallaborWork",
+        phoneNumber: "(121)239-2982"
       }
     };
 
@@ -85,6 +109,7 @@ var loadMap = function(){
 
       google.maps.event.addListener(marker, 'click', function() {
         console.log(feature.sound)
+        showModal(feature)
       });
 
     };
@@ -134,10 +159,35 @@ var loadMap = function(){
     map.setCenter(options.position);
   };
 
+  window.showModal = function(feature){
+    $('#newModal').modal('toggle');
+    
+    $('.md-title').html("<img src='"+feature.icon+"'>")
+    $('.md-title').unbind( "mouseover" );
+    $('.md-title').on('mouseover', function(){
+      playSound(feature.sound)
+    });
+    
+    $('.md-text').text(feature.salary)
+    
+    $('.md-description').html('<img src="./markers/wat.png">')
+    $('.md-description').unbind( "mouseover" );
+    $('.md-description').on('mouseover', function(){
+      playSound(feature.description)
+    });
+
+    $('.md-phone').html('<img src="./markers/phone.png"><span>'+feature.phoneNumber+'</span>')
+
+  };
+  
   window.playSound = function(sound){
-      document.getElementById(sound).load()
-      document.getElementById(sound).play()
+    $.each($('audio'), function () {
+      if (this.paused !== true) this.pause();
+    });
+    document.getElementById(sound).load()
+    document.getElementById(sound).play()
   }
+
 
   google.maps.event.addDomListener(window, 'load', initialize);
 };

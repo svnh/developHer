@@ -8,7 +8,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>developHer</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <!-- <meta name="viewport" content="width=device-width"> -->
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
@@ -17,67 +18,98 @@
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
     </head>
+
+
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100% }
+    </style>
+
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4XLs7cRIiRZWtjkTUPlijAUbKvo-7o3A&sensor=true">
+    </script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    
+    <script type="text/javascript">
+        var map;
+
+        function initialize() {
+          var mapOptions = {
+            zoom: 6,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+          map = new google.maps.Map(document.getElementById('map-canvas'),
+              mapOptions);
+
+          // Try HTML5 geolocation
+          if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+              var pos = new google.maps.LatLng(position.coords.latitude,
+                                               position.coords.longitude);
+
+
+                var marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    title:"My location"
+                });
+
+              google.maps.event.addListener(marker, 'click', function() {
+                playLocation();
+              });
+
+              map.setCenter(pos);
+            }, function() {
+              handleNoGeolocation(true);
+            });
+          } else {
+            // Browser doesn't support Geolocation
+            handleNoGeolocation(false);
+          }
+        }
+
+        function handleNoGeolocation(errorFlag) {
+          if (errorFlag) {
+            var content = 'Error: The Geolocation service failed.';
+          } else {
+            var content = 'Error: Your browser doesn\'t support geolocation.';
+          }
+
+          var options = {
+            map: map,
+            position: new google.maps.LatLng(60, 105),
+            content: content
+          };
+
+          var infowindow = new google.maps.InfoWindow(options);
+          map.setCenter(options.position);
+        };
+
+        var playLocation = function(){
+            document.getElementById('location').load()
+            document.getElementById('location').play()
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  
+  </head>
+  
     <body>
-        <!--[if lt IE 10]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-
-        <div class="container">
-            <div class="header">
-                <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <h3 class="text-muted">developHer</h3>
-            </div>
-
-            <div class="jumbotron">
-                <h1>'Allo, 'Allo!</h1>
-                <p class="lead">Always a pleasure scaffolding your apps.</p>
-                <p><a class="btn btn-lg btn-success" href="#">Splendid!</a></p>
-            </div>
-
-            <div class="row text-left">
-                <div class="col-md-offset-4">
-                    <h2>Now Try,</h2>
-                    <h4><b>yo backbone:router</b> &lt;router&gt;</h4>
-                    <h4><b>yo backbone:collection</b> &lt;collection&gt;</h4>
-                    <h4><b>yo backbone:model </b> &lt;model&gt;</h4>
-                    <h4><b>yo backbone:view </b> &lt;view&gt;</h4>
-                </div>
-            </div>
-
-            <div class="row marketing">
-                <div class="col-lg-6">
-                    <h4>HTML5 Boilerplate</h4>
-                    <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-
-                    <h4>Bootstrap</h4>
-                    <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-
-                    <h4>Modernizr</h4>
-                    <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
-
-                </div>
-                <div class="col-lg-6">
-                    <h4>Backbone.js</h4>
-                    <p>Backbone.js gives structure to web applications by providing models, collections, views and connects it all to your existing API over a RESTful JSON interface.</p>
-
-                    <h4>Underscore.js</h4>
-                    <p>Underscore.js is a utility-belt library for JavaScript that provides a lot of the functional programming support</p>
-
-
-                </div>
-            </div>
-
-            <div class="footer">
-                <p>♥ from the Yeoman team</p>
-            </div>
-
+    
+        <div>
+            developHer
+            <audio src="./location.mp3" id="location"></audio>
         </div>
 
+        <div id="map-canvas"/>
+
+
+        <script type="text/javascript">
+
+        </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

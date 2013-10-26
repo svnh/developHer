@@ -82,6 +82,11 @@ var loadMap = function(){
       google.maps.event.addListener(marker, 'mouseover', function() {
         playSound(feature.sound);
       });
+
+      google.maps.event.addListener(marker, 'click', function() {
+        console.log(feature.sound)
+      });
+
     };
     // Try HTML5 geolocation
     if(navigator.geolocation) {

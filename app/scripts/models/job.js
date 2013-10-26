@@ -6,7 +6,7 @@ developHer.Models = developHer.Models || {};
     'use strict';
 
     developHer.Models.JobModel = Backbone.Model.extend({
-
+      
     });
 
 })();

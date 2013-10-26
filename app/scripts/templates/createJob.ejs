@@ -1,51 +1,53 @@
 <div class='modal' id="jobModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <form role="form" class="modal-content form-inline">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       <div style="margin: 30px;">
-      <h2> Post a Job </h2>
-      <br>
-      <fieldset class="form-group">
-        <label for="location">Location</label>
-        <input type="text" class="form-control" id="location" placeholder="Enter address">
-      </fieldset>
-      <fieldset class="form-group">
-        <label for="description">Job Description</label>
-        <textarea type="text" class="form-control" id="description" placeholder="Job Description"></textarea>
-      </fieldset>
-      <fieldset class="form-group">
-        <label for="salary">Salary</label>
-        <input type="text" class="form-control" id="salary" placeholder="1000$">
-      </fieldset>
-      <fieldset class="form-group">
-        <label for="period">Period</label>
-        <input type="text" class="form-control" id="period" placeholder="2 months">
-      </fieldset>
-      <fieldset class="form-group">
-        <label for="contactNumber">Contact Number</label>
-        <input type="text" class="form-control" id="contactNumber" placeholder="1-800-123-4556">
-      </fieldset>
-      <fieldset style='position:relative;' class="checkbox">
-        <input style='position:absolute; top:2px;' type="checkbox" />
-        <div style='margin-left: 20px;'>Save this posting for later</div>
-      </fieldset>
-      <fieldset>
-        <label for="thing">Job Type</label>
-        <select id="type" class="form-control">
-          <option>agriculture</option>
-          <option>factory</option>
-          <option>construction</option>
-          <option>childcare</option>
-          <option>custodian</option>
-          <option>government</option>
-          <option>manual labor</option>
-        </select>
-      </fieldset>
-      <fieldset class="form-group">
-        <label for="moreInformation">Add Image</label>
-        <input type="file" id="moreInformation">
-      </fieldset>
-      <div>
-        <button class="btn btn-primary btn-default create" onclick='createJob()'>Create</button>
+        <h2> Post a Job </h2>
+        <br>
+        <fieldset class="form-group">
+          <label for="location">Location</label>
+          <input type="text" class="form-control" id="location" placeholder="Enter address">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="description">Job Description</label>
+          <textarea type="text" class="form-control" id="description" placeholder="Job Description"></textarea>
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="salary">Salary</label>
+          <input type="text" class="form-control" id="salary" placeholder="1000$">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="period">Period</label>
+          <input type="text" class="form-control" id="period" placeholder="2 months">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="contactNumber">Contact Number</label>
+          <input type="text" class="form-control" id="contactNumber" placeholder="1-800-123-4556">
+        </fieldset>
+        <fieldset style='position:relative;' class="checkbox">
+          <input style='position:absolute; top:2px;' type="checkbox" />
+          <div style='margin-left: 20px;'>Save this posting for later</div>
+        </fieldset>
+        <fieldset>
+          <label for="thing">Job Type</label>
+          <select id="type" class="form-control">
+            <option>agriculture</option>
+            <option>factory</option>
+            <option>construction</option>
+            <option>childcare</option>
+            <option>custodian</option>
+            <option>government</option>
+            <option>manual labor</option>
+          </select>
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="moreInformation">Add Image</label>
+          <input type="file" id="moreInformation">
+        </fieldset>
+        <div>
+          <button class="btn btn-success btn-default create" onclick='createJob()'>Create</button>
+        </div>
       </div>
       <div style='height: 45px;'></div>
     </form>

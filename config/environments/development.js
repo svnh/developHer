@@ -29,7 +29,7 @@ module.exports = function (app) {
     app.use(app.router);
     app.use(express.errorHandler());
 
-    mongoose.connect('mongodb://localhost/developHer-dev');
+    // mongoose.connect('mongodb://localhost/developHer-dev');
   });
 };
 

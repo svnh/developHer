@@ -13,6 +13,14 @@
         <textarea type="text" class="form-control" id="description" placeholder="Job Description"></textarea>
       </fieldset>
       <fieldset class="form-group">
+        <label for="salary">Salary</label>
+        <input type="text" class="form-control" id="salary" placeholder="1000$">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="period">Period</label>
+        <input type="text" class="form-control" id="period" placeholder="2 months">
+      </fieldset>
+      <fieldset class="form-group">
         <label for="contactNumber">Contact Number</label>
         <input type="text" class="form-control" id="contactNumber" placeholder="1-800-123-4556">
       </fieldset>
@@ -22,7 +30,7 @@
       </fieldset>
       <fieldset>
         <label for="thing">Job Type</label>
-        <select id="thing" class="form-control">
+        <select id="type" class="form-control">
           <option>agriculture</option>
           <option>factory</option>
           <option>construction</option>
@@ -37,7 +45,7 @@
         <input type="file" id="moreInformation">
       </fieldset>
       <div>
-        <button class="btn btn-primary btn-default create">Create</button>
+        <button class="btn btn-primary btn-default create" onclick='createJob()'>Create</button>
       </div>
       <div style='height: 45px;'></div>
     </form>

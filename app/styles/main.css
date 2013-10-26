@@ -9,7 +9,7 @@ body {
 }
 
 #map-canvas {
-  height: 5000px !important;
+  height: 100%;
   width: 100%;
 }
 
@@ -25,4 +25,12 @@ body {
 
 img:hover{
   height: 50px;
+}
+
+#add-job{
+  float: right;
+}
+
+#logo{
+  float: left;
 }

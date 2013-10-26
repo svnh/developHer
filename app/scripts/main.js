@@ -9,6 +9,8 @@ window.developHer = {
         'use strict';
         var jobsView = new developHer.Views.JobsView();
         $('body').append(jobsView.render());
+        var jobView = new developHer.Views.JobView();
+        $('body').prepend(jobView.render());
     }
 };
 

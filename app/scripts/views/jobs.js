@@ -19,6 +19,54 @@ var loadMap = function(){
           latitude: 37.591927,
           longitude: -122.34375
         }
+      },
+      factory: {
+        icon: './markers/factory.png',
+        sound: 'factory',
+        position: {
+          latitude: 37.5919,
+          longitude: -121.8375
+        }
+      },
+      construction: {
+        icon: './markers/construction.png',
+        sound: 'construction',
+        position: {
+          latitude: 38,
+          longitude: -122
+        }
+      },
+      custodian: {
+        icon: './markers/custodian.png',
+        sound: 'custodian',
+        position: {
+          latitude: 39,
+          longitude: -122
+        }
+      },
+      government: {
+        icon: './markers/government.png',
+        sound: 'government',
+        position: {
+          latitude: 37,
+          longitude: -121
+        }
+      },
+      childcare: {
+        icon: './markers/childcare.png',
+        sound: 'childcare',
+        position: {
+          latitude: 37,
+          longitude: -122.89
+        }
+      },
+      manuallabor: {
+        icon: './markers/manuallabor.png',
+        sound: 'manuallabor',
+        position: {
+          latitude: 36,
+          longitude: -122.8
+        }
       }
     };
 
@@ -31,17 +79,19 @@ var loadMap = function(){
         icon: feature.icon,
         map: map
       });
-      google.maps.event.addListener(marker, 'click', function() {
+      google.maps.event.addListener(marker, 'mouseover', function() {
         playSound(feature.sound);
       });
-    }
+    };
     // Try HTML5 geolocation
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         var pos = new google.maps.LatLng(position.coords.latitude,
                                          position.coords.longitude);
-
-        addMarker(icons.agriculture, pos);
+        console.log(pos)
+        for (var icon in icons) {
+          addMarker(icons[icon]);
+        }
         
         var myLocation = new google.maps.Marker({
             position: pos,
@@ -49,7 +99,7 @@ var loadMap = function(){
             title:"My location"
         });
 
-        google.maps.event.addListener(myLocation, 'click', function() {
+        google.maps.event.addListener(myLocation, 'mouseover', function() {
           playSound('location');
         });
 
@@ -80,7 +130,7 @@ var loadMap = function(){
     map.setCenter(options.position);
   };
 
-  var playSound = function(sound){
+  window.playSound = function(sound){
       document.getElementById(sound).load()
       document.getElementById(sound).play()
   }

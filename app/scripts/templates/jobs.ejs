@@ -1,7 +1,7 @@
 <div class="topBar">
   <div id='logo'>
     <img src="./markers/wat.png" class="enlargen" onmouseover="playSound('tutorial')"> 
-    developHer
+    <span onmouseover="playSound('PWR')">developHer</span>
   </div>
 
   <img src="./markers/agriculture.png" class="img-circle agriculture" onmouseover="playSound('agriculture')">
@@ -11,6 +11,7 @@
   <img src="./markers/government.png" class=" government" onmouseover="playSound('government')">
   <img src="./markers/manuallabor.png" class=" manuallabor" onmouseover="playSound('manuallabor')">
 
+  <audio src="./sounds/PWR.mp3" id="PWR"></audio>
   <audio src="./sounds/tutorial.mp3" id="tutorial"></audio>
   <audio src="./sounds/location.mp3" id="location"></audio>
   <audio src="./sounds/agriculture.mp3" id="agriculture"></audio>
@@ -20,9 +21,11 @@
   <audio src="./sounds/custodian.mp3" id="custodian"></audio>
   <audio src="./sounds/government.mp3" id="government"></audio>
   <audio src="./sounds/manuallabor.mp3" id="manuallabor"></audio>
-  <button id='add-job' class='btn btn-default addJob' data-toggle="modal" href="#myModal">
+  <button id='add-job' class='btn btn-default addJob' data-toggle="modal" href="#myModal" onmouseover="playSound('postJob')">
     <img class="plus" src="./markers/plus.png"/><span class="postJob">POST A JOB</span>
   </button>
+  <audio src="./sounds/postJob.mp3" id="postJob"></audio>
+
 
 
        

@@ -43,8 +43,8 @@ developHer.Collections = developHer.Collections || {};
 		salary: "$1070",
 		description: "custodian work",
 		position: {
-          latitude: 39,
-          longitude: -122
+          latitude: 37.874549,
+          longitude: -122.45842
         },
         contact: '(415)-357-38-98'
 	});
@@ -67,8 +67,8 @@ developHer.Collections = developHer.Collections || {};
 		salary: "$1200",
 		description: "childcare work",
 		position: {
-          latitude: 37.69951,
-          longitude: -122.423401
+          latitude:37.986896,
+          longitude: -122.56897
         },
         contact: '(415)-357-38-98'
 	});

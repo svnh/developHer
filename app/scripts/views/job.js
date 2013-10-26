@@ -2,6 +2,19 @@
 
 developHer.Views = developHer.Views || {};
 
+createJob = function(){
+	var newJob = new developHer.Models.JobModel({
+		type: $('#type').val(),
+		period: $('#period').val(),
+		salary: $('#salary').val(),
+		requirements: $('#requirements').val(),
+		description: $('#description').val()
+	});
+
+	jobsCollection.add([newJob]);
+	$('.close').click();
+};
+
 (function () {
   'use strict';
 

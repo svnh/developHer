@@ -4,7 +4,7 @@
     developHer
   </div>
 
-  <img src="./markers/agriculture.png" class=" agriculture" onmouseover="playSound('agriculture')">
+  <img src="./markers/agriculture.png" class="img-circle agriculture" onmouseover="playSound('agriculture')">
   <img src="./markers/factory.png" class=" factory" onmouseover="playSound('factory')">
   <img src="./markers/construction.png" class=" construction" onmouseover="playSound('construction')">
   <img src="./markers/childcare.png" class=" childcare" onmouseover="playSound('childcare')">
@@ -21,8 +21,13 @@
   <audio src="./sounds/government.mp3" id="government"></audio>
   <audio src="./sounds/manuallabor.mp3" id="manuallabor"></audio>
   <button id='add-job' class='btn btn-default' data-toggle="modal" href="#myModal"><img src="./markers/plus.png"/>POST A JOB</button>
+
+
        
 </div>
+<div id="bar"></div>
 <div id="map-canvas"/>
 <link rel="stylesheet" href="../../styles/main.css">
-
+<script type="text/javascript">
+  $('img').tooltip()
+</script>

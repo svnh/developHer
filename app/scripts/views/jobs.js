@@ -19,8 +19,8 @@ var loadMap = function(){
         icon: './markers/agriculture.png',
         sound: 'agriculture',
         position: {
-          latitude: 37.591927,
-          longitude: -122.34375
+          latitude: 30.7464,
+          longitude: -122.27
         },
         salary: "$1000",
         description: "farmWork",
@@ -74,8 +74,8 @@ var loadMap = function(){
         icon: './markers/childcare.png',
         sound: 'childcare',
         position: {
-          latitude: 37,
-          longitude: -122.89
+          latitude: 37.69951,
+          longitude: -122.423401
         },
         salary: "$2500",
         description: "childcareWork",
@@ -85,8 +85,8 @@ var loadMap = function(){
         icon: './markers/manuallabor.png',
         sound: 'manuallabor',
         position: {
-          latitude: 36,
-          longitude: -122.8
+          latitude: 37.55703,
+          longitude: -122.34375
         },
         salary: "$200",
         description: "manuallaborWork",
@@ -99,6 +99,7 @@ var loadMap = function(){
                                          feature.position.longitude);
       var marker = new google.maps.Marker({
         position: pos,
+        animation: google.maps.Animation.DROP,
         // icon: icons[feature.type].icon,
         icon: feature.icon,
         map: map

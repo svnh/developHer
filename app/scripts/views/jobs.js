@@ -18,7 +18,8 @@ var loadMap = function(){
         position: {
           latitude: 37.591927,
           longitude: -122.34375
-        }
+        },
+        salary: "$1000"
       },
       factory: {
         icon: './markers/factory.png',
@@ -26,7 +27,8 @@ var loadMap = function(){
         position: {
           latitude: 37.5919,
           longitude: -121.8375
-        }
+        },
+        salary: "$250"
       },
       construction: {
         icon: './markers/construction.png',
@@ -34,7 +36,8 @@ var loadMap = function(){
         position: {
           latitude: 38,
           longitude: -122
-        }
+        },
+        salary: "$100"
       },
       custodian: {
         icon: './markers/custodian.png',
@@ -42,7 +45,8 @@ var loadMap = function(){
         position: {
           latitude: 39,
           longitude: -122
-        }
+        },
+        salary: "$10"
       },
       government: {
         icon: './markers/government.png',
@@ -50,7 +54,8 @@ var loadMap = function(){
         position: {
           latitude: 37,
           longitude: -121
-        }
+        },
+        salary: "$500"
       },
       childcare: {
         icon: './markers/childcare.png',
@@ -58,7 +63,8 @@ var loadMap = function(){
         position: {
           latitude: 37,
           longitude: -122.89
-        }
+        },
+        salary: "$2500"
       },
       manuallabor: {
         icon: './markers/manuallabor.png',
@@ -66,7 +72,8 @@ var loadMap = function(){
         position: {
           latitude: 36,
           longitude: -122.8
-        }
+        },
+        salary: "$200"
       }
     };
 
@@ -85,7 +92,7 @@ var loadMap = function(){
 
       google.maps.event.addListener(marker, 'click', function() {
         console.log(feature.sound)
-        showModal(feature.sound)
+        showModal(feature)
       });
 
     };
@@ -140,8 +147,10 @@ var loadMap = function(){
       document.getElementById(sound).play()
   }
 
-  window.showModal = function(sound){
-    $('#newModal').modal('toggle')
+  window.showModal = function(feature){
+    $('#newModal').modal('toggle');
+    $('.modal-title').html("<img src='"+feature.icon+"'/>")
+    $('.modal-text').text(feature.salary)
   }
 
   google.maps.event.addDomListener(window, 'load', initialize);

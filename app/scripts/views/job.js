@@ -2,7 +2,7 @@
 
 developHer.Views = developHer.Views || {};
 
-createJob = function(){
+var createJob = function(){
 	var newJob = new developHer.Models.JobModel({
 		type: $('#type').val(),
 		period: $('#period').val(),
@@ -15,12 +15,17 @@ createJob = function(){
 	$('.close').click();
 };
 
+$('.login').on("click", function(e){
+  e.preventDefault();
+  alert('hello');
+});
+
 (function () {
   'use strict';
 
   developHer.Views.JobView = Backbone.View.extend({
 
-    template: JST['app/scripts/templates/job.ejs'],
+    template: JST['app/scripts/templates/createJob.ejs'],
 
     render: function(){
       return this.template;

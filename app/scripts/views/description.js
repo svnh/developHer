@@ -10,6 +10,7 @@ developHer.Views = developHer.Views || {};
     template: JST['app/scripts/templates/description.ejs'],
 
     render: function(){
+      console.log('rendering');
       return this.template;
     }
 

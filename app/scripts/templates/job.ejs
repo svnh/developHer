@@ -1,29 +1,25 @@
 <div class='modal' id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Add new job</h4>
-				<fieldset>
-					<label>Type</label>
-					<select id='type'>
-						<option>Childcare</option>
-					</select>
-					<label>Salary</label>
-					<input id='salary' />
-					<label>Period</label>
-					<input id='period' />
-				</fieldset>
-				<fieldset>
-					<label>Requirements</label>
-					<textarea id='requirements' />
-				</fieldset>
-				<fieldset>
-					<label>Description</label>
-					<textarea id='description' />
-				</fieldset>
-				<button onclick="createJob()">Create</button>
-			</div>
-		</div>
-	</div>
+
+	<form role="form" class="modal-content">
+	<div style="margin: 30px;">
+	<h1> Please Sign In to Post a Job </h1>
+	  <div class="form-group">
+	    <label for="exampleInputEmail1">Email address</label>
+	    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleInputPassword1">Password</label>
+	    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+	  </div>
+	  <div class="checkbox">
+	    <label>
+	      <input type="checkbox"> Remember me
+	    </label>
+	  </div>
+	  <button class="btn btn-default login">Submit</button>
+	  </div>
+	  <p style="margin: 30px;"> Don't have an account? <a href=#>Sign Up Here</a></p>
+
+	</form>
 </div>

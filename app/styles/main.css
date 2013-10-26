@@ -6,3 +6,12 @@ body {
     margin: 50px auto 0 auto;
     width: 300px;
 }
+
+.topBar {
+  height: 70px;
+  text-align: center;
+}
+
+img:hover{
+  height: 50px;
+}

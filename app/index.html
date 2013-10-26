@@ -111,7 +111,7 @@
           icon: feature.icon,
           map: map
         });
-        google.maps.event.addListener(marker, 'click', function() {
+        google.maps.event.addListener(marker, 'mouseover', function() {
           playSound(feature.sound);
         });
       };
@@ -131,7 +131,7 @@
               title:"My location"
           });
 
-          google.maps.event.addListener(myLocation, 'click', function() {
+          google.maps.event.addListener(myLocation, 'mouseover', function() {
             playSound('location');
           });
 
@@ -174,14 +174,14 @@
 
   <body>
   
-      <div>
+      <div class="topBar">
           developHer
-          <img src="./markers/agriculture.png" id="agriculture">
-          <img src="./markers/factory.png" id="factory">
-          <img src="./markers/construction.png" id="construction">
-          <img src="./markers/childcare.png" id="childcare">
-          <img src="./markers/government.png" id="government">
-          <img src="./markers/manuallabor.png" id="manuallabor">
+          <img src="./markers/agriculture.png" class="agriculture" onmouseover="playSound('agriculture')">
+          <img src="./markers/factory.png" class="factory" onmouseover="playSound('factory')">
+          <img src="./markers/construction.png" class="construction" onmouseover="playSound('construction')">
+          <img src="./markers/childcare.png" class="childcare" onmouseover="playSound('childcare')">
+          <img src="./markers/government.png" class="government" onmouseover="playSound('government')">
+          <img src="./markers/manuallabor.png" class="manuallabor" onmouseover="playSound('manuallabor')">
 
           <audio src="./sounds/location.mp3" id="location"></audio>
           <audio src="./sounds/agriculture.mp3" id="agriculture"></audio>

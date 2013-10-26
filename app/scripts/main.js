@@ -1,6 +1,5 @@
 /*global developHer, $*/
 
-
 window.developHer = {
     Models: {},
     Collections: {},

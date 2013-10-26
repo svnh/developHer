@@ -7,8 +7,10 @@ developHer.Collections = developHer.Collections || {};
 
     developHer.Collections.JobsCollection = Backbone.Collection.extend({
 
-        model: developHer.Models.JobsModel
+        model: developHer.Models.JobModel
 
     });
+
+    window.jobsCollection = new developHer.Collections.JobsCollection();
 
 })();

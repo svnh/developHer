@@ -15,9 +15,17 @@ var createJob = function(){
 	$('.close').click();
 };
 
-$('.login').on("click", function(e){
-  e.preventDefault();
-  alert('hello');
+$(document).ready(function(){
+  $('.login').on("click", function(e){
+    e.preventDefault();
+    $('#myModal').modal('toggle');
+    $('#jobModal').modal('toggle');
+  });
+
+  $('.create').on("click", function(e){
+    e.preventDefault();
+    $('#jobModal').modal('toggle');
+  });
 });
 
 (function () {
@@ -25,10 +33,16 @@ $('.login').on("click", function(e){
 
   developHer.Views.JobView = Backbone.View.extend({
 
-    template: JST['app/scripts/templates/createJob.ejs'],
+    el: '#modal-content',
+    template: JST['app/scripts/templates/job.ejs'],
+    otherTemplate: JST['app/scripts/templates/createJob.ejs'],
 
     render: function(){
       return this.template;
+    },
+
+    otherRender: function(){
+      return this.otherTemplate;
     }
 
   });

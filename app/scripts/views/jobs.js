@@ -6,8 +6,11 @@ var loadMap = function(){
   function initialize() {
     var mapOptions = {
       zoom: 6,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      disableDefaultUI: true,
+      zoomControl: true
+    }
+
     map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
 

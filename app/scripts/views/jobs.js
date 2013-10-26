@@ -85,6 +85,7 @@ var loadMap = function(){
 
       google.maps.event.addListener(marker, 'click', function() {
         console.log(feature.sound)
+        showModal(feature.sound)
       });
 
     };
@@ -137,6 +138,10 @@ var loadMap = function(){
   window.playSound = function(sound){
       document.getElementById(sound).load()
       document.getElementById(sound).play()
+  }
+
+  window.showModal = function(sound){
+    $('#newModal').modal('toggle')
   }
 
   google.maps.event.addDomListener(window, 'load', initialize);

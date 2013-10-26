@@ -1,12 +1,25 @@
 <div class='modal' id="newModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="md-title"></h4>
-        <span class="md-text"></span>
-        <span class="md-description"></span>
-        <span class="md-phone"></span>
+        <div class='col-sm-4'>
+          <img style='height: 120px; width: 120px;' src='http://brandonmathis.com/projects/fancy-avatars/demo/images/avatar_female_dark_on_clear_200x200.png' />
+          <div style='margin-top: 40px;'>
+            <img src="./markers/phone.png">
+            <span style='padding-left: 5px;'><%= contact %></span>
+          </div>
+        </div>
+        <div class="col-sm-8" style='cursor:pointer;'>
+          <div style='height: 50px;'>
+            <img style='float: right;' src='./markers/wat.png' id='md-description'>
+          </div>
+          <br>
+          <div>
+            <img style='float: left; margin: 5px;' src='./markers/<%= type %>.png' />
+            <span><%= description %></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -21,10 +34,10 @@
 <audio src="./sounds/government.mp3" id="government"></audio>
 <audio src="./sounds/manuallabor.mp3" id="manuallabor"></audio>
 
-<audio src="./sounds/farmWork.mp3" id="farmWork"></audio>
+<audio src="./sounds/farmWork.mp3" id="agricultureWork"></audio>
 <audio src="./sounds/factoryWork.mp3" id="factoryWork"></audio>
 <audio src="./sounds/constructionWork.mp3" id="constructionWork"></audio>
 <audio src="./sounds/custodianWork.mp3" id="custodianWork"></audio>
 <audio src="./sounds/childcareWork.mp3" id="childcareWork"></audio>
-<audio src="./sounds/govtWork.mp3" id="govtWork"></audio>
+<audio src="./sounds/govtWork.mp3" id="governmentWork"></audio>
 <audio src="./sounds/manuallaborWork.mp3" id="manuallaborWork"></audio>

@@ -51,6 +51,54 @@
             latitude: 37.591927,
             longitude: -122.34375
           }
+        },
+        factory: {
+          icon: './markers/factory.png',
+          sound: 'factory',
+          position: {
+            latitude: 37.5919,
+            longitude: -121.8375
+          }
+        },
+        construction: {
+          icon: './markers/construction.png',
+          sound: 'construction',
+          position: {
+            latitude: 38,
+            longitude: -122
+          }
+        },
+        custodian: {
+          icon: './markers/custodian.png',
+          sound: 'custodian',
+          position: {
+            latitude: 39,
+            longitude: -122
+          }
+        },
+        government: {
+          icon: './markers/government.png',
+          sound: 'government',
+          position: {
+            latitude: 37,
+            longitude: -121
+          }
+        },
+        childcare: {
+          icon: './markers/childcare.png',
+          sound: 'childcare',
+          position: {
+            latitude: 37,
+            longitude: -122.89
+          }
+        },
+        manuallabor: {
+          icon: './markers/manuallabor.png',
+          sound: 'manuallabor',
+          position: {
+            latitude: 36,
+            longitude: -122.8
+          }
         }
       };
 
@@ -66,14 +114,16 @@
         google.maps.event.addListener(marker, 'click', function() {
           playSound(feature.sound);
         });
-      }
+      };
       // Try HTML5 geolocation
       if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
           var pos = new google.maps.LatLng(position.coords.latitude,
                                            position.coords.longitude);
 
-          addMarker(icons.agriculture, pos);
+          for (var icon in icons) {
+            addMarker(icons[icon]);
+          }
           
           var myLocation = new google.maps.Marker({
               position: pos,
@@ -128,6 +178,12 @@
           developHer
           <audio src="./sounds/location.mp3" id="location"></audio>
           <audio src="./sounds/agriculture.mp3" id="agriculture"></audio>
+          <audio src="./sounds/factory.mp3" id="factory"></audio>
+          <audio src="./sounds/construction.mp3" id="construction"></audio>
+          <audio src="./sounds/childcare.mp3" id="childcare"></audio>
+          <audio src="./sounds/custodian.mp3" id="custodian"></audio>
+          <audio src="./sounds/government.mp3" id="government"></audio>
+          <audio src="./sounds/manuallabor.mp3" id="manuallabor"></audio>
       </div>
 
       <div id="map-canvas"/>

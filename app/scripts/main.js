@@ -11,6 +11,8 @@ window.developHer = {
         $('body').append(jobsView.render());
         var jobView = new developHer.Views.JobView();
         $('body').prepend(jobView.render());
+        var descriptionView = new developHer.Views.DescriptionView();
+        $('body').prepend(descriptionView.render());
     }
 };
 

@@ -5,7 +5,7 @@ loadMap = function(){
 
   function initialize() {
     var mapOptions = {
-      zoom: 8,
+      zoom: 9,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       disableDefaultUI: true,
       zoomControl: true

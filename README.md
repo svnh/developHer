@@ -2,7 +2,7 @@ developHer -- PWR
 ==========
 PWR = More People Work Ready
 
-PWR is a web application that brings online job search to the illiterate population.
+PWR is a web application created at the LinkedIn Developher 2013 hackthon that brings online job search to the illiterate population.
 Non-readers are the most disempowered people in the world and are often unable to benefit from
 resources on the internet, which makes tasks like searching for a job much more difficult 
 for a population that already has a hard time finding a job. Althought it is useful for all job-seekers,
